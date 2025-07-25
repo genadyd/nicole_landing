@@ -1,10 +1,9 @@
 FROM php:8.4-fpm
 WORKDIR /var/www
-RUN apt-get update && \
-    apt-get install -y \
+RUN apt-get update && apt-get install -y\
     sqlite-dev\
     php84-pdo_sqlite\
-    libpng-dev libzip-dev && \
+    libpng-dev libzip-dev &&\
      docker-php-ext-install pdo_mysql zip pdo_sqlite
 COPY . /var/www
 RUN composer install --no-dev --optimize-autoloader
