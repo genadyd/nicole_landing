@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80:9000"  # Host port 80 to container port 8080
+    environment:
+      - DATABASE_URL=sqlite:///app/data/mydb.db  # Example environment variable for database path
+
+
+
